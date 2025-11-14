@@ -1,5 +1,6 @@
 import express from "express"
 import path from "path"
+import fs from 'fs'
 import { fileURLToPath } from 'url'
 
 const app = express()
@@ -9,12 +10,26 @@ const port = 3000
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// servir a pasta frontend (assim o fetch('/quiz') funciona quando abrir a página pelo servidor)
-const frontendPath = path.join(__dirname, '..', '..', 'frontend')
+// localizar pasta frontend — pode estar em two locations depending on how repo was rearranged
+const candidateRoot = path.join(__dirname, '..', '..', 'frontend') // original location: project_root/frontend
+const candidateBackend = path.join(__dirname, '..', 'frontend') // possible moved location: backend/frontend
+let frontendPath = null
+if (fs.existsSync(candidateBackend)) {
+    frontendPath = candidateBackend
+    console.log('Serving frontend from', frontendPath)
+} else if (fs.existsSync(candidateRoot)) {
+    frontendPath = candidateRoot
+    console.log('Serving frontend from', frontendPath)
+} else {
+    // fallback: try parent of __dirname
+    frontendPath = candidateRoot
+    console.warn('Frontend folder not found in expected locations; using', frontendPath)
+}
+
 app.use(express.static(frontendPath))
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'))
+    res.sendFile(path.join(frontendPath, 'index.html'))
 })
 
 app.get("/quiz", async (req, res) => { // Rota que puxa da api de perguntas e respostas
