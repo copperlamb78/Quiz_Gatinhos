@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Projeto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main>
+  <div id="quiz-container">
+    <header class="quiz-header">
+      <h1>Quiz de Animais 🐾</h1>
+      <div id="score">Acertos: <span id="score-count">0</span></div>
+    </header>
+
+    <section class="question-area">
+      <h2 id="questao-num">Questão 1 / 10</h2>
+      <p id="pergunta">Carregando pergunta...</p>
+    </section>
+
+    <div class="options" id="options"></div>
+
+    <div class="controls">
+      <button id="next" class="btn" disabled>Próxima</button>
+      <button id="reset" class="btn ghost">Reiniciar</button>
+    </div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <div id="cat-container" class="cat-container hidden" aria-live="polite">
+      <div class="cat-card">
+        <h3>Você acertou! Aqui está um gatinho aleatório 😺</h3>
+        <img id="cat-img" src="" alt="Gatinho" />
+        <button id="close-cat" class="btn small">Fechar</button>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

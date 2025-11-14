@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(135deg,#89f7fe 0%, #66a6ff 100%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #113;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main {
+    width: 100%;
+    max-width: 920px;
+    padding: 28px;
+}
+
+#quiz-container{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(17,24,39,0.12);
+    padding: 28px;
+}
+
+.option {
+  padding: 12px 18px;
+  background: #f0f7fb;
+  border: 1px solid #e0eef6;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .15s ease;
+  min-width: 160px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(16,24,40,0.04);
+}
+
+.option.selected {
+  background: linear-gradient(90deg,#e6fff7,#eaf8ff);
+  box-shadow: 0 6px 18px rgba(14,63,90,0.06);
+  transform: translateY(-3px);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.quiz-header{ display:flex; justify-content:space-between; align-items:center }
+.quiz-header h1{ margin:0; font-size:1.6rem }
+#score{ font-weight:600; color:#0b6 }
+.question-area p{ font-size:1.15rem; margin:8px 0 0 }
+.controls{ display:flex; gap:10px; justify-content:flex-end; margin-top:6px }
+.btn{ background:#0b79d0; color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer }
+.btn.ghost{ background:transparent; color:#0b79d0; border:1px solid rgba(11,121,208,0.12) }
+.btn.small{ padding:6px 10px; font-size:0.9rem }
+
+.feedback{ min-height:28px; font-weight:600 }
+
+.cat-container{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(6,8,10,0.45); padding:24px }
+.cat-card{ background:#fff; border-radius:12px; padding:18px; max-width:520px; width:100%; text-align:center; box-shadow:0 12px 30px rgba(2,6,23,0.2) }
+.cat-card img{ max-width:100%; height:auto; border-radius:10px; margin:12px 0 }
+.hidden{ display:none }
+
+@media (max-width:600px){
+  .options{ grid-template-columns: 1fr }
+  main{ padding:14px }
+}
