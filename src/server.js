@@ -142,5 +142,5 @@ app.get("/gatinho", async (req, res) => { // Rota que puxa gatinhos da api de ga
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port http://localhost:${port}`)
 })
