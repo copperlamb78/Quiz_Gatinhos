@@ -11,8 +11,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 // localizar pasta frontend — pode estar em two locations depending on how repo was rearranged
-const candidateRoot = path.join(__dirname, '..', '..', 'frontend') // original location: project_root/frontend
-const candidateBackend = path.join(__dirname, '..', 'frontend') // possible moved location: backend/frontend
+const candidateRoot = path.join(__dirname, '..', '..', 'frontend') 
+const candidateBackend = path.join(__dirname, '..', 'frontend') 
 let frontendPath = null
 if (fs.existsSync(candidateBackend)) {
     frontendPath = candidateBackend
